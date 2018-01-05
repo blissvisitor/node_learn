@@ -1,0 +1,1 @@
+start write to 3.txt use bufferwrite end
