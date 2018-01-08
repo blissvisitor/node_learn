@@ -2,14 +2,14 @@ var fn_index=async (ctx,next)=>{
 	ctx.response.body=`<h1>Index</h1>
 		<form action='/signin' method='post'>
 			<p>Name:<input name='name' value='koa' /></p>
-			<p>Password:<input type='password' name='passwrod' ></p>
+			<p>Password:<input type='password' name='password' ></p>
 			<p><input type='submit' value='Submit'/></p>
 			</form>`;
 };
 var fn_signin=async (ctx,next)=>{
 	var name=ctx.request.body.name||'',
 		password=ctx.request.body.password||'';
-	console.log(`name,password:${name}  ${passwrod}`);
+	console.log(`name,password:${name}  ${password}`);
 	  if (name === 'koa' && password === '12345') {
         ctx.response.body = `<h1>Welcome, ${name}!</h1>`;
     } else {
@@ -18,7 +18,7 @@ var fn_signin=async (ctx,next)=>{
     }
 
 };
-modules.exports={
+module.exports={
 	'GET /':fn_index,
 	'POST /signin':fn_signin
 }
